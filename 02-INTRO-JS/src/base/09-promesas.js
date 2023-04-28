@@ -1,3 +1,5 @@
+//en index pones esta 
+//import { getHeroeById } from '../src/base/08-imp-exp'
 import { getHeroeById } from '../base/08-imp-exp'
 
 export const getHeroeByIdAsync = ( id ) => {
@@ -19,3 +21,7 @@ export const getHeroeByIdAsync = ( id ) => {
 
 
 }
+
+getHeroeByIdAsync(5)
+.then( (heroe)=> console.log(heroe) )
+.catch( (error)=> console.log(error) );
