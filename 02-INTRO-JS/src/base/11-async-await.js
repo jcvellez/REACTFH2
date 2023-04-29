@@ -1,6 +1,5 @@
 //async 
 
-
 const getImagen = async () => {
     const id=52;
     const peticion = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -16,5 +15,4 @@ getImagen().then(
         document.body.append( img );
     }
 
-).catch( (error)=>console.log(error) 
 );
