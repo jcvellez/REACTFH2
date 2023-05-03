@@ -1,8 +1,18 @@
 //FC
 import React from 'react'
 
-const PrimeraApp = ()=>{
-    return <h1>Hola a todos reacteros</h1>;
-};
+const PrimeraApp = () => {
+    //const saludo = 'Hola a todos reacteros';
+    const saludo = 'hola';
+    return (
+        <>
+            <h1>{saludo}</h1>
+            {/* <h1>{ JSON.stringify(saludo) }</h1> */}
+            <p>Mi primera app</p>
+        </>
+    );
+}
 
-export default PrimeraApp;
+export {
+    PrimeraApp
+}
