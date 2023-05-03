@@ -1,0 +1,2 @@
+imp + TAB => genera un formato de importacion
+rafcp + TAB => arma un cascaron de un functional components

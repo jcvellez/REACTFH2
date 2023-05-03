@@ -1,18 +1,29 @@
 //FC
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const PrimeraApp = () => {
+const PrimeraApp = ( { mensaje, otra } ) => {
     //const saludo = 'Hola a todos reacteros';
-    const saludo = 'hola';
+   
     return (
         <>
-            <h1>{saludo}</h1>
+            <h1>{ mensaje }</h1>
             {/* <h1>{ JSON.stringify(saludo) }</h1> */}
-            <p>Mi primera app</p>
+            <p>{ otra }</p>
         </>
     );
 }
 
+PrimeraApp.propTypes = {
+    mensaje: PropTypes.string.isRequired,
+    otra: PropTypes.string
+}
+
+PrimeraApp.defaultProps = {
+    otra: 'Este es un valor por defecto'
+}
+ 
 export {
     PrimeraApp
 }
+
