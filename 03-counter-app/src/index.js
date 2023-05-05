@@ -10,6 +10,6 @@ import './index.css'
 const divRoot= document.querySelector('#root'); //referencia
 // PrimeraApp es la llamada al componente
 //ReactDOM.render(<PrimeraApp mensaje = { 'En pruebas' }/>,divRoot); //( codig html , referencia )
-ReactDOM.render(<CounterApp value = { 100 }/>,divRoot);
+ReactDOM.render(<CounterApp value = { 10 }/>,divRoot);
 
 //mensaje = 'Hola este es mi mensaje'
