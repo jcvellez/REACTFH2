@@ -11,14 +11,26 @@ const GifGrid = ({ category }) => {
 
     const getGifs = async () => {
         let poke = 'pikachu'
-        const url = `https://pokeapi.co/api/v2/pokemon/${poke}`;
+        //const url = `https://pokeapi.co/api/v2/pokemon/${poke}`;  
+        const url = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`;
         const respuesta = await fetch(url);
         //const {id} = await respuesta.json();
         //const { name } = await respuesta.json();
-        const { sprites } = await respuesta.json();
-        const resp =  sprites.other.home;
-        //const resp = respuesta;
-        console.log(resp);
+        //const { sprites } = await respuesta.json();
+        //const resp =  sprites.other.home;
+        //const resp = respuesta;       
+        const { results } = await respuesta.json();
+
+        const gifs = results.map((img, i) => {
+            return {
+                id: i + 1,
+                name: img.name,
+                url: img.url
+            }
+        })
+
+        console.log(gifs);
+        setimages(gifs)
     }
 
 
