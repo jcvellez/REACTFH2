@@ -1,46 +1,33 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import GifGridItem from './GifGridItem';
+import { getGifs } from './helpers/getGifs';
 
 const GifGrid = ({ category }) => {
 
-    const [images, setimages] = useState([])
+    let [images, setimages] = useState([])
+
     useEffect(() => {
-        getGifs();
+        getGifs().then( (imgs)=>setimages(imgs) );
     }, []); //[] los corchetes son para indicar q no tiene ninguna dependencia por eso no te renderiza todo de nuevo.
-
-    const getGifs = async () => {
-        let poke = 'pikachu'
-        //const url = `https://pokeapi.co/api/v2/pokemon/${poke}`;  
-        const url = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`;
-        const respuesta = await fetch(url);
-        //const {id} = await respuesta.json();
-        //const { name } = await respuesta.json();
-        //const { sprites } = await respuesta.json();
-        //const resp =  sprites.other.home;
-        //const resp = respuesta;       
-        const { results } = await respuesta.json();
-
-        const gifs = results.map((img, i) => {
-            return {
-                id: i + 1,
-                name: img.name,
-                url: img.url
-            }
-        })
-
-        console.log(gifs);
-        setimages(gifs)
-    }
-
-
 
     return (
         <>
             <h3>{category}</h3>
-            <ol>
-                <li>item</li>
-            </ol>
+            <div className='card-grid'>
+                <ol>
+                    {
+                        images.map((item) => (
+                            <GifGridItem key={item.id} {...item} />
+                            //<GifGridItem key={ item.id } item={ item } />
+                        ))
+                    }
+
+                    {/* {
+                    images.map( (item)=> <li key={ item.id }>{ item.name }</li> )
+                }                 */}
+                </ol>
+            </div>
         </>
     )
 }
