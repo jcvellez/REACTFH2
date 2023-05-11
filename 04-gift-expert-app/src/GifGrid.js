@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import GifGridItem from './GifGridItem';
-import { getGifs } from './helpers/getGifs';
+//import { getGifs } from './helpers/getGifs';
+import { useFetchGIfs } from './hooks/useFetchGIfs'
 
 const GifGrid = ({ category }) => {
 
-    let [images, setimages] = useState([])
-
-    useEffect(() => {
-        getGifs().then( (imgs)=>setimages(imgs) );
-    }, []); //[] los corchetes son para indicar q no tiene ninguna dependencia por eso no te renderiza todo de nuevo.
+    // let [images, setimages] = useState([])
+    const { data:images , loading } = useFetchGIfs(); // data:images
+    console.log(loading);
 
     return (
         <>
-            <h3>{category}</h3>
+            <h3 className='animate__animated animate__fadeIn' >{category}</h3>
+            {/* { loading ? 'Cargando...' : 'Data Cargada' } */}
+            { loading && <p className='animate__animated animate__flash' > Loading </p> }
             <div className='card-grid'>
                 <ol>
                     {
@@ -24,8 +25,8 @@ const GifGrid = ({ category }) => {
                     }
 
                     {/* {
-                    images.map( (item)=> <li key={ item.id }>{ item.name }</li> )
-                }                 */}
+                        images.map((item) => <li key={item.id}>{item.name}</li>)
+                    } */}
                 </ol>
             </div>
         </>

@@ -7,7 +7,7 @@ const GifGidItem = ({ id, name, url }) => { //aqui puedes usar props oaplicar de
     
 
     return (
-        <div className='card'>
+        <div className='card animate__animated animate__fadeInLeft'>
             <img src={url} alt={name}></img>
             <p>{name}</p>
         </div>

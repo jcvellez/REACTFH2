@@ -1,7 +1,7 @@
 export const getGifs = async () => {
     let poke = 'pikachu'
     //const url = `https://pokeapi.co/api/v2/pokemon/${poke}`;  
-    const url = `https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`;
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`;
     const respuesta = await fetch(url);
     //const {id} = await respuesta.json();
     //const { name } = await respuesta.json();
