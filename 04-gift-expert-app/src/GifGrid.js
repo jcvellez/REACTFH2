@@ -33,6 +33,7 @@ const GifGrid = ({ category }) => {
     )
 }
 
+
 GifGrid.propTypes = {
 
 }
