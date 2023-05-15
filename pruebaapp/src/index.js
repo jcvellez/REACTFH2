@@ -1,9 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { AppOne } from './AppOne';
 import './index.css'
 
-
-let divRoot = document.querySelector('#root'); //referencia
-
-ReactDOM.render(<AppOne valor = { 10 }/>,divRoot);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AppOne valor = { 10 }/>);

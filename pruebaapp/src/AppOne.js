@@ -21,9 +21,9 @@ let AppOne = ({ valor }) => {
         <>
             <h2> Mi Multiplicador </h2>
             <h3>{ miValor }</h3>
-            <button onClick={ Restar5 } id='boton3' type="button" class="btn btn-success">-5</button>
-            <button onClick={ Reset } id='boton2' type="button" class="btn btn-secondary">reset</button>
-            <button onClick={ Sumar5 } id='boton1' type="button" class="btn btn-primary">+5</button>
+            <button onClick={ Restar5 } id='boton3' type="button" className="btn btn-success">-5</button>
+            <button onClick={ Reset } id='boton2' type="button" className="btn btn-secondary">reset</button>
+            <button onClick={ Sumar5 } id='boton1' type="button" className="btn btn-primary">+5</button>
         </>
     )
 }
