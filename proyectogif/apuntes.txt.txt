@@ -1,0 +1,74 @@
+///Avances de GifExpert
+
+//////////////////////////////GifExpertApp //////////////////////////////////////////////
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
+const GifExpertApp = props => {
+
+    //const categories = ['One Punch', 'Samurai X', 'Dragon Ball'];
+
+    const [categories, setCategories] = useState(['One Punch', 'Samurai X', 'Dragon Ball']);
+
+    const handleAdd = ()=>{
+        //setCategories([...categories, 'Otro Valor'])
+        setCategories( ()=>[...categories , 'Otro Valor'] )
+    }
+
+    return (
+        <>
+            <h2>GifExpertApp</h2>
+            <hr></hr>
+            <button onClick={ handleAdd } >Agregar</button>
+            <ol>
+                {
+                    categories.map((category,i) => {
+                        return <li key={i}> {category} </li>
+                    }
+                    )
+                }
+            </ol>
+        </>
+    )
+}
+
+//GifExpertApp.propTypes = {}
+
+export {
+    GifExpertApp
+} 
+
+
+/////////////////////////////AddCategory //////////////////////////////////////
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
+const AddCategory = () => {
+
+    const [inputValue, setinputValue] = useState('')
+
+    //esta funcio n es la q cambia el texto en el formulario
+    const handleinputChange = (e) => {
+        setinputValue(e.target.value);
+        console.log(e.target.value);
+    }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); //para prevenir el comportamiento por defecto del formulario
+        console.log('submit hecho');
+    }
+
+    return (
+        <form onSubmit={handleSubmit} >
+            <input type='text' value={inputValue} onChange={handleinputChange}></input>
+        </form>
+    )
+}
+
+//AddCategory.propTypes = {}
+
+export default AddCategory
+
+
+////////////////////////////////////////////////////////////////////////////
