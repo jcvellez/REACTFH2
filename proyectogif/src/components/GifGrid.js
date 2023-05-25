@@ -41,10 +41,11 @@ const GifGrid = ({ category }) => {
             <h3>{category}</h3>
             <ol>
                 {
-                    images.map((img,i) => {
-                        < GifGridItem key={i} img={img} />
-                        //return <li key={id}> {title} </li>
-                    })
+                    images.map((img) => (
+                        //< GifGridItem  key={img.id} img={img} />
+                        //<li key={img.id}> {img.title} </li>
+                        < GifGridItem key={img.id} img={img} />
+                    ))
                 }
             </ol>
         </>
