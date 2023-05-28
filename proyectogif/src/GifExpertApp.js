@@ -4,7 +4,7 @@ import AddCategory from './components/AddCategory';
 import GifGrid from './components/GifGrid';
 
 const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['roll']); //'One Punch', 'Samurai X', 'Dragon Ball'
+    const [categories, setCategories] = useState(['']); //'One Punch', 'Samurai X', 'Dragon Ball'
 
     // const handleAdd = ()=>{
     //     setCategories( ()=>[...categories , 'Otro Valor'] )

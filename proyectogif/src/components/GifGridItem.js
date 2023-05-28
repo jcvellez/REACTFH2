@@ -5,9 +5,9 @@ const GifGridItem = ( {img} ) => {
     
 
     return (
-        <div>
-            <img src={img.url} title={img.title} />
-            <p>{img.title}</p>            
+        <div className='animate__animated animate__fadeIn'>
+            <img className='card' src={img.url} title={img.title} />
+            <p className='card'>{img.title}</p>            
         </div>        
     )
 }
