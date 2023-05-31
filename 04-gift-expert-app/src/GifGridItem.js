@@ -14,7 +14,10 @@ const GifGidItem = ({ id, name, url }) => { //aqui puedes usar props oaplicar de
     )
 }
 
-// GifGidItem.propTypes = {
-// }
+GifGidItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+}
 
 export default GifGidItem
+ 
