@@ -26,7 +26,7 @@ const SimpleForm = () => {
     //console.log('email cambio');
   }, [email]);
 
-  const handleInputChange = ({ target }) => { //aqui desestructuro la e y saco el target solamente
+  const handleInputChange = ({ target }) => { //aqui desestructuro la e y saco el target solamente. Originalmente es asi => e.target.value
     setformState(
       {
         ...formState,
