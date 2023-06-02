@@ -17,15 +17,7 @@ const Message = () => {
 
     useEffect(() => {
         //console.log('componente montado'); //esto es lo que va hacer el componente
-        window.addEventListener('mousemove', mouseEvent
-            // (e) => {
-            //     const coors =
-            //     {
-            //         x: e.x,
-            //         y: e.y
-            //     }
-            //     console.log(coors);
-            // }
+        window.addEventListener('mousemove', mouseEvent            
         );
         return () => {
             //console.log('componente DESmontado'); //esto es el desecho la , aqui se quita el efecto
@@ -34,6 +26,7 @@ const Message = () => {
     }, []) //esta son las dependencias
 
     const { x, y } = coords;
+    
     return (
         <>
             <h2>Eres genial!!</h2>

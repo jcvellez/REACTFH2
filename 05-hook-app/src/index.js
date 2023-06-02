@@ -6,4 +6,4 @@ import CounterWithcustomHook from './components/01-useState/CounterWithcustomHoo
 import SimpleForm from './components/02-useEffect/SimpleForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( <SimpleForm /> );
+root.render( <FormWithCustomHook /> );
