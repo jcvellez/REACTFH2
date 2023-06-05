@@ -2,28 +2,27 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './effects.css';
 import Message from './Message';
+import useForm from '../../hooks/useForm'
 
 const FormWithCustomHook = () => {
-  const [formState, setformState] = useState(
+
+  const [values, handleInputChange] = useForm(
     {
       name: '',
-      email: ''
+      email: '',
+      password: ''
     }
   );
 
-  const { name, email } = formState;
+  const { name, email, password } = values;
 
-   const handleInputChange = ({ target }) => { //aqui desestructuro la e y saco el target solamente. Originalmente es asi => e.target.value
-    setformState(
-      {
-        ...formState,
-        [target.name]: target.value
-      }
-    );
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+  };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <h1>FormWithCustomHook</h1>
       <hr></hr>
       <div className='form-group'>
@@ -49,8 +48,23 @@ const FormWithCustomHook = () => {
           value={email}
           onChange={handleInputChange}
         />
-      </div>     
-    </>
+      </div>
+
+
+      <div className='form-group'>
+        <input
+          type='password'
+          name='password'
+          className='form-control'
+          placeholder='*******'
+          autoComplete='off'
+          value={password}
+          onChange={handleInputChange}
+        />
+      </div>
+      <button onClick={handleSubmit} className='btn btn-success'>Aceptar</button>
+      {/* {name === '123' && <Message />} */}
+    </form>
   )
 }
 
