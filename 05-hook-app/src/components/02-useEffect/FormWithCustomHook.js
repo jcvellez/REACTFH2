@@ -56,4 +56,4 @@ const FormWithCustomHook = () => {
 
 //SimpleForm.propTypes = {}
 
-export default SimpleForm
+export default FormWithCustomHook
