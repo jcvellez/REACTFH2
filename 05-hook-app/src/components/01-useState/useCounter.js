@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const useCounter = (valorinicial) => {
-    const [state, setState] = useState(valorinicial);
+const useCounter = (inicialState) => {
+    const [counter, setCounter] = useState(inicialState);
 
-    let increment = (factor) => {
-        setState(state + factor);
+    let increment = () => {
+        setCounter(counter + 1);
     }
-    let decrement = (factor) => {
-        setState(state - factor);
+    let decrement = () => {
+        setCounter(counter - 1);
     }
 
     let reset = ()=>{
-        setState(valorinicial);
+        setCounter(inicialState);
     }
     return {
-        state,
+        counter,
         increment,
         decrement,
         reset
