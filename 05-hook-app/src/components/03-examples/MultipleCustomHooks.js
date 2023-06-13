@@ -6,10 +6,9 @@ import useCounter from '../01-useState/useCounter'
 const MultipleCustomHooks = () => {
 
   const { counter, increment } = useCounter(1);
-  const { loading, data } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${ counter }}`);
+  const { loading, data } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${counter}`);
   const { quote, author } = !!data && data[data.length - 1];
   console.log(loading);
-  console.log(counter);
   return (
     <div>
       <h1>BreakingBad Quotes</h1>
