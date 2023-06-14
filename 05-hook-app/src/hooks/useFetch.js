@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const useFetch = (url) => {
+
+    const isMounted = useRef(true);
+
     const [state, setState] = useState(
         {
             data: null,
@@ -8,6 +11,16 @@ const useFetch = (url) => {
             error: null
         }
     );
+
+    useEffect(() => {
+
+
+        return () => {
+            isMounted.current = false;
+        }
+    }, [])
+
+
     useEffect(() => {
 
         setState({ data: null, loading: true, error: null });
@@ -17,12 +30,17 @@ const useFetch = (url) => {
             .then(data => {
 
                 setTimeout(() => {
-                    setState({
-                        loading: false,
-                        error: null,
-                        data: data
-                    })
-                }, 4000);
+                    if (isMounted.current) {
+                        setState({
+                            loading: false,
+                            error: null,
+                            data: data
+                        })
+                    } else {
+                        console.log('SetState no se llamo');
+                    }
+
+                }, 1000);
 
             }
             )
