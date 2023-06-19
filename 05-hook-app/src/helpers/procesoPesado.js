@@ -4,4 +4,3 @@ export const procesoPesado = (iteraciones) => {
         return `${iteraciones} iteraciones realizadas desde aca`;
     }
 }
-

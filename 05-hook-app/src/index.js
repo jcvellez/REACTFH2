@@ -14,4 +14,4 @@ import MemoHook from './components/06-memos/MemoHook';
 import { CallBackHook } from './components/06-memos/CallBackHook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( <CallBackHook /> );
+root.render( <MemoHook /> );
