@@ -7,13 +7,6 @@ const MemoHook = () => {
 
     const { counter, increment } = useCounter(5000);
     const [show, setShow] = useState(true)
-
-    // const procesoPesado = (iteraciones) => {
-    //     for (let i = 0; i < iteraciones; i++) {
-    //         console.log(iteraciones, ' Ahi vamos...');
-    //         return `${iteraciones} iteraciones realizadas`;
-    //     }
-    // }
     
     const memoProcesoPesado = useMemo(() => procesoPesado(counter), [counter]) //osea si el counter cambia nencesito una nueva version memorizada de esa funcion.
 
