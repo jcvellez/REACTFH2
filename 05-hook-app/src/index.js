@@ -12,6 +12,8 @@ import Layout from './components/05-useLayoutEffect/LayoutEffect';
 import Memorize from './components/06-memos/Memorize';
 import MemoHook from './components/06-memos/MemoHook';
 import { CallBackHook } from './components/06-memos/CallBackHook';
+import { Padre } from './components/07-tarea-memo/Padre';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( <MemoHook /> );
+root.render( <Padre /> );
+
