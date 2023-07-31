@@ -1,24 +1,42 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import PropTypes from 'prop-types'
 import '../08-useReducer/style.css';
 import { todoReducer } from './todoReducer';
+import useForm from '../../hooks/useForm';
 
-const initialState = [{
-    id: new Date().getTime(),
-    desc: 'Aprender React',
-    done: false
-}];
+const init=()=>{
+    return JSON.parse( localStorage.getItem('todos') ) || [];
+    // return [{
+    //     id: new Date().getTime(),
+    //     desc: 'Aprender React',
+    //     done: false
+    // }];
+}
 
 const ToDoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, initialState);
-    console.log(todos);
+    const [todos, dispatch] = useReducer(todoReducer, [], init);
+
+    const [{ description }, handleInputChange, reset] = useForm({
+        description: ''
+    });
+
+    useEffect(() => {
+        localStorage.setItem('todos',JSON.stringify(todos));
+    }, [todos]); //aqui pongo los "todos" por que si los todos cambian entonces graba en el Local Storage
+    
+    //console.log(description);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (description.trim().length <= 1) {
+            return;
+        }
+
         const newToDo = {
             id: new Date().getTime(),
-            desc: 'Nueva tarea',
+            desc: description,
             done: false
         };
 
@@ -28,6 +46,7 @@ const ToDoApp = () => {
         }
 
         dispatch(action);
+        reset();
     }
 
     return (
@@ -54,7 +73,14 @@ const ToDoApp = () => {
                     <h4>Agregar ToDo</h4>
                     <hr></hr>
                     <form onSubmit={handleSubmit}>
-                        <input type='text' name='description' className='form-control' placeholder='Aprender algo ...' autoComplete='off' ></input>
+                        <input type='text'
+                            name='description'
+                            className='form-control'
+                            placeholder='Aprender algo ...'
+                            autoComplete='off'
+                            onChange={handleInputChange}
+                            value={description}
+                        ></input>
                         <button type='submit' className='btn btn-outline-primary mt-1 btn-block'>
                             Agregar
                         </button>
