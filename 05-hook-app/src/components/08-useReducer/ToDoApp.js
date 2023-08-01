@@ -4,8 +4,8 @@ import '../08-useReducer/style.css';
 import { todoReducer } from './todoReducer';
 import useForm from '../../hooks/useForm';
 
-const init=()=>{
-    return JSON.parse( localStorage.getItem('todos') ) || [];
+const init = () => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
     // return [{
     //     id: new Date().getTime(),
     //     desc: 'Aprender React',
@@ -22,11 +22,33 @@ const ToDoApp = () => {
     });
 
     useEffect(() => {
-        localStorage.setItem('todos',JSON.stringify(todos));
+        localStorage.setItem('todos', JSON.stringify(todos));
     }, [todos]); //aqui pongo los "todos" por que si los todos cambian entonces graba en el Local Storage
-    
-    //console.log(description);
 
+    //ELIMINAR un ToDo
+    const handleDelete = (todoId) => {
+        
+        //todoId.preventDefault();        
+        const action = {
+            type: 'delete',
+            payload: todoId
+        }
+
+        dispatch(action);
+        //console.log('Este es el id para borrar ',todoId);
+    }
+
+    const handleToggle= (todoId)=>{
+
+        const action = {
+            type: 'toggle',
+            payload: todoId
+        }
+
+        dispatch(action);
+    }
+
+    //AGREGAR un ToDo
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -60,8 +82,8 @@ const ToDoApp = () => {
                             todos.map((todo, i) => (
                                 <li key={todo.id} className='list-group-item'
                                 >
-                                    <p className='text-center complete'> {i + 1}. {todo.desc} </p>
-                                    <button className='btn btn-danger'>
+                                    <p className={`${ todo.done && 'complete'}`} onClick={()=>handleToggle(todo.id)}> {i + 1}. {todo.desc} </p>
+                                    <button  onClick={()=>handleDelete(todo.id)} className='btn btn-danger'>
                                         Borrar
                                     </button>
                                 </li>
