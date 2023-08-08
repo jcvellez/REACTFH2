@@ -4,21 +4,25 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Routes
+    Routes,
+    Redirect
 } from "react-router-dom";
 import AboutScreen from './AboutScreen';
 import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
+import NavBar from './NavBar';
 
 const AppRouter = () => {
     return (
         // <div>AppRouter</div>
         <Router>
             <div>
+                <NavBar />
                 <Routes>
                     <Route exact path="/" Component={HomeScreen} />
                     <Route exact path="/about" Component={AboutScreen} />
                     <Route exact path="/login" Component={LoginScreen} />
+                    <Redirect to="/" />
                 </Routes>
             </div>
         </Router>
