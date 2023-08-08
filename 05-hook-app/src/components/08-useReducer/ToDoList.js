@@ -6,7 +6,7 @@ const ToDoList = ({ todos, handleDelete, handleToggle }) => {
     return (
         todos.map((todo, i) => (
             //TodoListItem, todo, index, handleDelete, handleToggle
-            <TodoListItem todo={todo} index={i} handleDelete={handleDelete} handleToggle={handleToggle} />
+            <TodoListItem todo={todo} i={i} handleDelete={handleDelete} handleToggle={handleToggle} />
         ))
     )
 }
