@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import AppRouter from './AppRouter'
 
 const MainApp = props => {
-  return (
-    <div>
-      <h1>MainApp</h1>
-      <hr></hr>
-    </div>
-  )
+    return (
+        <AppRouter />
+    )
 }
 
 // MainApp.propTypes = {

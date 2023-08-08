@@ -4,20 +4,25 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Routes
 } from "react-router-dom";
 import AboutScreen from './AboutScreen';
+import LoginScreen from './LoginScreen';
+import HomeScreen from './HomeScreen';
 
 const AppRouter = () => {
     return (
         // <div>AppRouter</div>
         <Router>
             <div>
-                <Switch>
-                    <Route path='/about' component={AboutScreen} />
-                </Switch>
+                <Routes>
+                    <Route exact path="/" Component={HomeScreen} />
+                    <Route exact path="/about" Component={AboutScreen} />
+                    <Route exact path="/login" Component={LoginScreen} />
+                </Routes>
             </div>
         </Router>
+        // <div>AppRouter</div>
     )
 }
 

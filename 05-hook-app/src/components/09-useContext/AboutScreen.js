@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AboutScreen = props => {
+const AboutScreen = () => {
   return (
     <div>
       <h1>AboutScreen</h1>
@@ -14,4 +14,4 @@ const AboutScreen = props => {
 
 // }
 
-export default AboutScree
+export default AboutScreen
