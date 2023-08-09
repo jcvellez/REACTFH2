@@ -18,12 +18,14 @@ const AppRouter = () => {
         <Router>
             <div>
                 <NavBar />
-                <Routes>
-                    <Route exact path="/" Component={HomeScreen} />
-                    <Route exact path="/about" Component={AboutScreen} />
-                    <Route exact path="/login" Component={LoginScreen} />
-                    <Route Component={<Navigate replace to="/" />} />
-                </Routes>
+                <div className='container'>
+                    <Routes>
+                        <Route exact path="/" Component={HomeScreen} />
+                        <Route exact path="/about" Component={AboutScreen} />
+                        <Route exact path="/login" Component={LoginScreen} />
+                        <Route Component={<Navigate replace to="/" />} />
+                    </Routes>
+                </div>
             </div>
         </Router>
         // <div>AppRouter</div>
