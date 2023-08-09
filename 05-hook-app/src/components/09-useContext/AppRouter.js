@@ -5,7 +5,7 @@ import {
     Switch,
     Route,
     Routes,
-    Redirect
+    Navigate
 } from "react-router-dom";
 import AboutScreen from './AboutScreen';
 import LoginScreen from './LoginScreen';
@@ -22,7 +22,7 @@ const AppRouter = () => {
                     <Route exact path="/" Component={HomeScreen} />
                     <Route exact path="/about" Component={AboutScreen} />
                     <Route exact path="/login" Component={LoginScreen} />
-                    <Redirect to="/" />
+                    <Route Component={<Navigate replace to="/" />} />
                 </Routes>
             </div>
         </Router>
