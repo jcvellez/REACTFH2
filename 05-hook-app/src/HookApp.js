@@ -3,9 +3,11 @@ import React from 'react'
 
 const HookApp = () => {
 
-    console.log('estamos probando hokks');
+  console.log('estamos probando hokks');
   return (
-    <div>HookApp esta aqui</div>
+    <div>
+      HookApp esta aqui
+    </div>
   )
 }
 
