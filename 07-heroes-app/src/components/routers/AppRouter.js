@@ -1,8 +1,8 @@
+import { Routes ,Route } from 'react-router-dom';
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route
+    BrowserRouter as Router
+    
 } from "react-router-dom";
 import { Navbar } from '../ui/Navbar'; 
 import { LoginScreen } from '../login/LoginScreen';
@@ -15,10 +15,10 @@ export const AppRouter = () => {
                 <Navbar />
 
                 
-                <Switch>
-                    <Route exact path="/login" Component={ LoginScreen }/>
-                    <Route exact path="/" Component={ Marvel }/>
-                </Switch>
+                <Routes>
+                    <Route  path="/login" element={ LoginScreen }/>
+                    <Route  path="/" element={ Marvel }/>
+                </Routes>
             </div>
         </Router>
     )
